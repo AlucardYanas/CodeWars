@@ -150,10 +150,7 @@ const friendsStatus = [{ username: 'David', status: 'online', lastActivity: 10 }
 
 function whosOnline(friends) {
 
-    const finalStatus = {
-
-
-    };
+    const finalStatus = {};
 
     for (const friend of friends) {
         if (friend.status === 'online' && friend.lastActivity <= 10) {
@@ -316,7 +313,6 @@ function findUnique(numbers) {
         }
     }
 
-
     const digitedNoDublicates = Object.keys(noDublicates);
     return Number(digitedNoDublicates.join(""));
 
@@ -329,3 +325,132 @@ console.log(findUnique([
 
 
 // задача 10 Coding Meetup #2
+
+function greetDevelopers(list) {
+
+    const greetings = [];
+
+    for (const developers of list) {
+        developers['greeting'] = `Hi ${developers. firstName}, what do you like the most about ${developers.language}?`
+        greetings.push(developers);
+
+    }
+    return greetings;
+}
+
+console.log(greetDevelopers([{
+        firstName: 'Sofia',
+        lastName: 'I.',
+        country: 'Argentina',
+        continent: 'Americas',
+        age: 35,
+        language: 'Java',
+    },
+    {
+        firstName: 'Lukas',
+        lastName: 'X.',
+        country: 'Croatia',
+        continent: 'Europe',
+        age: 35,
+        language: 'Python',
+    },
+    {
+        firstName: 'Madison',
+        lastName: 'U.',
+        country: 'United States',
+        continent: 'Americas',
+        age: 32,
+        language: 'Ruby',
+    },
+]));
+
+
+// Задача 11 Convert Hash To An Array
+
+function convertHashToArray(hash) {
+    return Object.entries(hash).sort(function(a, b) {
+        if (a[0] > b[0]) {
+            return 1;
+        }
+        if (a[0] < b[0]) {
+            return -1;
+        }
+    })
+}
+
+console.log(convertHashToArray({ name: "Jeremy", age: 24, role: "Software Engineer" }));
+
+// Задача 12  My Language Skills
+
+function myLanguages(results) {
+    return Object.keys(results)
+        .filter(r => results[r] > 59)
+        .sort((a, b) => results[b] - results[a])
+
+    // const sortedLanguages = [];
+
+    // for (language of languages) {
+    //     if (language[1] > 59) {
+    //         sortedLanguages.push(language[0]);
+    //     };
+    // };
+};
+
+console.log(myLanguages({ "Hindi": 60, "Greek": 71, "Dutch": 93 }));
+console.log(myLanguages({ "C++": 50, "ASM": 10, "Haskell": 20 }))
+
+
+// Задача 13  Double Sort
+
+function dbSort(a) {
+    // const arithmeticOperators = {
+    //     stringSort: sort((a, b) => a - b),
+    //     digitsSort: sort((a, b) => a - b),
+    // };
+
+    // for(data in a) {
+    //     if(data == 'string'){
+    //         arithmeticOperators.stringSort
+    //     }
+    // }
+
+    let stringsArray = a.filter(n => typeof(n) == 'string')
+        .sort();
+    let digitsArray = a.filter(i => typeof(i) == 'number')
+        .sort((x, y) => x - y);
+
+    return digitsArray.concat(stringsArray);
+}
+
+console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]));
+
+
+// задача 14 Convert A Hex String To RGB
+
+function decimalToRgb(decimal) {
+    return {
+        r: (decimal >> 16) & 0xff,
+        g: (decimal >> 8) & 0xff,
+        b: decimal & 0xff,
+    };
+}
+
+function hexStringToRGB(hexString) {
+
+    const digitedHexString = hexString.slice(1);
+
+    const decimalNumber = parseInt(digitedHexString, 16);
+
+    return decimalToRgb(decimalNumber);
+
+}
+
+console.log(hexStringToRGB("#FF9933"));
+
+// Задача 15 Super power frequency function
+
+function frequency(arr, options) {
+
+}
+
+//Задача 16
